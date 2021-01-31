@@ -3,6 +3,7 @@
 
 
 # .zshrc
+mv ~/.zshrc ~/.zshrc.old
 ln .zshrc ~/ 2>/dev/null
 
 # .vimrc
