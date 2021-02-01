@@ -41,7 +41,7 @@ for_window [class="Com.github.jmoerman.go-for-it"] move to workspace $ws10
 # Autostart programs 
 
 exec thunderbird
-exec "/home/nlif/Telegram/Telegram"
+exec "telegram-desktop"
 exec "xrandr --output HDMI-A-0 --mode 1920x1080"
 exec "xrandr --output DVI-D-1 --right-of HDMI-1 --auto"
 exec "qbittorrent"
