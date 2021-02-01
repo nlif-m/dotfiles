@@ -22,7 +22,7 @@ bindcode $mod+72 exec firefox
 bindcode $mod+73 exec firefox
 bindcode $mod+74 exec firefox
 bindcode $mod+75 exec killall -SIGUSR1 py3status
-bindcode $mod+76 exec 'i3lock -c 000000'
+bindcode $mod+76 exec 'i3lock -c 000000 && systemctl suspend'
 bindcode $mod+95 exec reboot
 bindcode $mod+96 exec poweroff
 
@@ -40,8 +40,7 @@ for_window [class="Com.github.jmoerman.go-for-it"] move to workspace $ws10
 
 # Autostart programs 
 
-exec thunderbird
-exec "/home/nlif/Telegram/Telegram"
+exec "telegram-desktop"
 exec "xrandr --output HDMI-A-0 --mode 1920x1080"
 exec "xrandr --output DVI-D-1 --right-of HDMI-1 --auto"
 exec "qbittorrent"
