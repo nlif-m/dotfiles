@@ -22,7 +22,7 @@ bindcode $mod+72 exec firefox
 bindcode $mod+73 exec firefox
 bindcode $mod+74 exec firefox
 bindcode $mod+75 exec killall -SIGUSR1 py3status
-bindcode $mod+76 exec 'i3lock -c 000000 && systemctl suspend'
+bindcode $mod+76 exec 'i3lock -c 000000'
 bindcode $mod+95 exec reboot
 bindcode $mod+96 exec poweroff
 
