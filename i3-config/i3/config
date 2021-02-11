@@ -34,7 +34,7 @@ bindcode $mod+96 exec poweroff
 for_window [class="Navigator"] move to workspace $ws3
 for_window [class="qBittorrent"] move to workspace $ws7
 for_window [class="Telegram"] move to workspace $ws8
-for_window [class="Steam"] move to workspace $ws9
+for_window [class="Gtg"] move to workspace $ws9
 for_window [class="Com.github.jmoerman.go-for-it"] move to workspace $ws10
 
 
@@ -44,6 +44,7 @@ exec "telegram-desktop"
 exec "xrandr --output HDMI-A-0 --mode 1920x1080"
 exec "xrandr --output DVI-D-1 --right-of HDMI-1 --auto"
 exec "qbittorrent"
+exec "gtg"
 
 #END OF CONFIG
 # Font for window titles. Will also be used by the bar unless a different font
