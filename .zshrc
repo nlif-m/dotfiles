@@ -13,5 +13,10 @@ alias pgp='pass git push origin master'
 alias sp='sudo pacman' 
 alias s='sudo systemctl'
 
+alias gre='gpg -r m.payunen@gmail.com -e'
 
 _Z_DATA=$HOME/.config/.z
+
+
+path+=('/home/nlif/code/liblarch')
+export PATH
