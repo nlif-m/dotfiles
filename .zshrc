@@ -20,3 +20,4 @@ _Z_DATA=$HOME/.config/.z
 
 path+=('/home/nlif/code/liblarch')
 export PATH
+export GSIP=202102120.ru
