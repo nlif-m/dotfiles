@@ -8,7 +8,7 @@ ln .zshrc ~/ 2>/dev/null
 
 # .vimrc
 rm ~/.vimrc
-ln .vimrc/.vimrc ~/ 2>/dev/null
+ln .vimrc ~/ 2>/dev/null
 
 # i3config
 mkdir -p ~/.config/i3 2>/dev/null
