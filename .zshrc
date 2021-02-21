@@ -18,6 +18,7 @@ alias gre='gpg -r m.payunen@gmail.com -e'
 _Z_DATA=$HOME/.config/.z
 
 
-path+=('/home/nlif/code/liblarch')
+path+=('~/code/liblarch')
+path+=('~/.scripts')
 export PATH
 export GSIP=202102120.ru
