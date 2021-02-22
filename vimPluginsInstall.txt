@@ -1,0 +1,18 @@
+Vim - Installation
+
+1. Use updateConfig.sh or Manually ln .vimrc to home folder
+
+2. Install xkb-switch  
+Needed for comfortable use of russian keyboard layout 
+git clone https://github.com/grwlf/xkb-switch
+cd xkb-switch && mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+
+2.1 install vim-xkbswitch
+git clone https://github.com/lyokha/vim-xkbswitch
+cd vim-xkbswitch && cp plugin ~/.vim
+
+2.2 Add let g:XkbSwithEnabled = 1 to .vimrc
