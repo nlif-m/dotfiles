@@ -12,6 +12,7 @@ alias ohmyzsh="vim  ~/.oh-my-zsh"
 alias pgp='pass git push origin master'
 alias sp='sudo pacman' 
 alias s='sudo systemctl'
+alias nb='newsboat'
 
 alias gre='gpg -r m.payunen@gmail.com -e'
 
