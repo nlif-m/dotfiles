@@ -14,6 +14,7 @@ alias sp='sudo pacman'
 alias s='sudo systemctl'
 alias nb='newsboat'
 
+alias p='python'
 alias gre='gpg -r m.payunen@gmail.com -e'
 
 _Z_DATA=$HOME/.config/.z
