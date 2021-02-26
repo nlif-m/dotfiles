@@ -20,3 +20,6 @@ mkdir -p ~/.config/i3status 2>/dev/null
 rm ~/.config/i3status/config
 ln ~/code/dotfiles/i3-config/i3status/config ~/.config/i3status/config
 
+# .xinitrc
+rm ~/.xinitrc 2>/dev/null
+ln .xinitrc ~/.xinitrc
