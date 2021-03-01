@@ -16,6 +16,7 @@ alias nb='newsboat'
 
 alias p='python'
 alias gre='gpg -r m.payunen@gmail.com -e'
+alias startx='startx ~/.xinitrc'
 
 _Z_DATA=$HOME/.config/.z
 
