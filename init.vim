@@ -9,15 +9,16 @@ call vundle#begin('~/.config/nvim/bundle')
 
 " let Vundle manage Vundle, required
 
-
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-surround'
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'lervag/vimtex'
 Plugin 'neomake/neomake'
+Plugin 'vim-airline/vim-airline'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -103,6 +104,9 @@ let g:tex_conceal='abdmg'
 
 let g:XkbSwitchEnabled=1
 let g:XkbSwitchLib='/usr/local/lib/libxkbswitch.so.1.8.5'
+
+call neomake#configure#automake('nrww', 500)
+
 
 
 
