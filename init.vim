@@ -18,6 +18,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'lervag/vimtex'
 Plugin 'neomake/neomake'
 Plugin 'vim-airline/vim-airline'
+Plugin 'lyokha/vim-XkbSwitch'
 
 
 " All of your Plugins must be added before the following line
