@@ -5,6 +5,7 @@ case $session in
     dwm        ) slstatus & 
                  exec dwm ;;
     i3|i3wm    ) exec i3;;
+    plasma|kde ) exec startplasma-x11;;
     # No known session, try to run it as command
     *          ) exec $1;;
 esac
