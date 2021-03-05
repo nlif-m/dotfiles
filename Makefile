@@ -13,7 +13,7 @@ nvim: nvim_directory
 	rm $(PATH_NVIM_INIT) $(DEV_NULL) ; ln init.vim $(PATH_NVIM_INIT) $(DEV_NULL)
 
 nvim_directory:
-	mkdir -p '~/.config/nvim' $(DEV_NULL)
+	mkdir -p ~/.config/nvim $(DEV_NULL)
 
 zshrc:
 	rm $(PATH_ZSHRC) $(DEV_NULL) ; ln .zshrc $(PATH_ZSHRC) $(DEV_NULL)
