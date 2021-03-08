@@ -85,7 +85,7 @@ set noswapfile
 set encoding=utf-8 " Кодировка файлов по умолчанию
 set fileencodings=utf8,cp1251
 
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set ruler
 
 set hidden
