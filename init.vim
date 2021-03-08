@@ -92,6 +92,7 @@ set hidden
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
+let g:ycm_show_dianostics_ui = 0
 " Выключаем звук в Vim
 set visualbell t_vb=
 
