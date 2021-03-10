@@ -1,6 +1,6 @@
 Vim - Installation
 
-1. install vim by system packet manager or build by source
+1. install nvim/vim by system packet manager or build by source
 
 2. Install xkb-switch  
 Needed for comfortable use of russian keyboard layout 
