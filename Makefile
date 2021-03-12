@@ -1,25 +1,35 @@
+# PATHs to apps dirs
+P-nvim=~/.config/nvim
+P-zsh=~/.config/zsh
+P-x11=~/.config/x11
+P-zprofile=~/.config/shell/
+
+P-dotfiles=~/.config/dotfiles
+
 DEV_NULL=2>/dev/null
-P-nvim-init=~/.config/nvim/init.vim
-P-zshrc=~/.zshrc
-P-xinitrc=~/.xinitrc
-P-dotfiles=~/code/dotfiles
 
 
 
-
-
-all: nvim zshrc xinitrc
+all: nvim zshrc xinitrc zprofile
 
 nvim: 
-	mkdir -p ~/.config/nvim $(DEV_NULL); 
-	rm $(P-nvim-init) $(DEV_NULL); 
-	ln $(P-dotfiles)/init.vim $(P-nvim-init) $(DEV_NULL);
+	mkdir -p $(P-nvim) $(DEV_NULL); 
+	rm -f $(P-nvim)/init.vim $(DEV_NULL); 
+	ln $(P-dotfiles)/init.vim $(P-nvim)/init.vim $(DEV_NULL);
 
 zshrc:
-	rm $(P-zshrc) $(DEV_NULL) ; ln $(P-dotfiles)/.zshrc $(P-zshrc) $(DEV_NULL)
+	mkdir -p $(P-zsh) $(DEV_NULL); 
+	rm -f $(P-zsh)/.zshrc $(DEV_NULL); 
+	ln $(P-dotfiles)/.zshrc $(P-zsh)/.zshrc $(DEV_NULL);
 
 xinitrc:
-	rm $(P-xinitrc) $(DEV_NULL) ; ln $(P-dotfiles)/.xinitrc $(P-xinitrc) $(DEV_NULL)
+	mkdir -p $(P-x11) $(DEV_NULL); 
+	rm -f $(P-x11)/.xinitrc $(DEV_NULL);
+	ln -s $(P-dotfiles)/.xinitrc $(P-x11)/.xinitrc $(DEV_NULL);
 
+zprofile:
+	mkdir -p $(P-zprofile) $(DEV_NULL); 
+	rm -f ~/.zprofile $(DEV_NULL);
+	ln -s $(P-dotfiles)/profile ~/.zprofile $(DEV_NULL);
 
 
