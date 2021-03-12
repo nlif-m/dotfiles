@@ -11,11 +11,14 @@ SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
 # Basic auto/tab complete:
-autoload -U compinit
+autoload -U compinit promptinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
+promptinit
+prompt clint
 _comp_options+=(globdots)		# Include hidden files.
+setopt COMPLETE_ALIASES
 
 
 alias zshconfig="vim  ~/.zshrc"
