@@ -68,7 +68,7 @@ alias s='sudo systemctl'
 alias nb='newsboat'
 alias p='python'
 alias gre='gpg -r m.payunen@gmail.com -e'
-alias startx='startx ~/.xinitrc'
+alias startx='startx ~/.config/x11/.xinitrc'
 alias vim='nvim'
 alias ls='ls --color'
 
