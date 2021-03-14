@@ -71,6 +71,7 @@ alias gre='gpg -r m.payunen@gmail.com -e'
 alias startx='startx ~/.config/x11/.xinitrc'
 alias vim='nvim'
 alias ls='ls --color'
+alias scr='cd ~/.local/share/scripts'
 
 #------------------------------
 # Prompt
