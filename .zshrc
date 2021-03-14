@@ -72,6 +72,7 @@ alias startx='startx ~/.config/x11/.xinitrc'
 alias vim='nvim'
 alias ls='ls --color'
 alias scr='cd ~/.local/share/scripts'
+alias dotf='cd ~/.config/dotfiles'
 
 #------------------------------
 # Prompt
