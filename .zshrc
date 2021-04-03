@@ -81,7 +81,7 @@ alias dotf='cd ~/.config/dotfiles'
 autoload -U colors zsh/terminfo
 colors
 
-export PATH
+export PATH=~/.python/bin:$PATH
 export GSIP=202102120.ru
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
