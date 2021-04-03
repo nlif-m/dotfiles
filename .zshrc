@@ -83,6 +83,6 @@ autoload -U colors zsh/terminfo
 colors
 
 export PATH=~/.python/bin:$PATH
-export GSIP=202102120.ru
+export GSIP=git.yasal.ru
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
