@@ -61,6 +61,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Aliases
+alias la="ls -al --color"
 alias zshconfig="vim  ~/.zshrc"
 alias pgp='pass git push origin master'
 alias sp='sudo pacman' 
