@@ -11,6 +11,9 @@ SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
 
+# Command on start
+umask u=rwx,g=,o=
+
 # Completion.
 zmodload zsh/complist 
 autoload -Uz compinit
