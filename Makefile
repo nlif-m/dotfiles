@@ -15,12 +15,12 @@ all: nvim zshrc xinitrc zprofile
 nvim: 
 	mkdir -p $(P-nvim) $(DEV_NULL); 
 	rm -f $(P-nvim)/init.vim $(DEV_NULL); 
-	ln $(P-dotfiles)/init.vim $(P-nvim)/init.vim $(DEV_NULL);
+	ln -s $(P-dotfiles)/init.vim $(P-nvim)/init.vim $(DEV_NULL);
 
 zshrc:
 	mkdir -p $(P-zsh) $(DEV_NULL); 
 	rm -f $(P-zsh)/.zshrc $(DEV_NULL); 
-	ln $(P-dotfiles)/.zshrc $(P-zsh)/.zshrc $(DEV_NULL);
+	ln -s $(P-dotfiles)/.zshrc $(P-zsh)/.zshrc $(DEV_NULL);
 
 xinitrc:
 	mkdir -p $(P-x11) $(DEV_NULL); 
