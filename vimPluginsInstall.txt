@@ -10,5 +10,9 @@ cmake ..
 make
 sudo make install
 
+3. if install nvim install pynvim python package because if not YCM will not work.
+python3.6+
+python3 -m pip install pynvim
+
 
 
