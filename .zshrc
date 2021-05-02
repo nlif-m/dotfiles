@@ -77,6 +77,7 @@ alias vim='nvim'
 alias ls='ls --color'
 alias scr='cd ~/.local/share/scripts'
 alias dotf='cd ~/.config/dotfiles'
+alias stopit='sudo runit-init 0'
 
 #------------------------------
 # Prompt
