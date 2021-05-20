@@ -34,7 +34,7 @@ zprofile:
 	rm -f ~/.zprofile $(DEV_NULL);
 	ln -s $(P-dotfiles)/profile ~/.zprofile $(DEV_NULL);
 
-xmonad: xmobar 
+xmonad: xmobar xmonadMarkdown
 	mkdir -p $(P-xmonad) $(DEV_NULL)
 	rm -f $(P-xmonad)/xmonad.hs $(DEV_NULL)
 	ln -s $(P-dotfiles)/xmonad.hs $(P-xmonad)/xmonad.hs 
@@ -44,3 +44,8 @@ xmobar:
 	rm -f $(P-xmobar)/xmobarrc0 $(P-xmobar)/xmobarrc1 $(DEV_NULL)
 	ln -s $(P-dotfiles)/xmobarrc0 $(P-xmobar)/xmobarrc0
 	ln -s $(P-dotfiles)/xmobarrc1 $(P-xmobar)/xmobarrc1
+
+xmonadMarkdown:
+	mkdir -p $(P-xmonad) $(DEV_NULL)
+	rm -f $(P-xmonad)/xmonad.md $(DEV_NULL)
+	ln -s $(P-dotfiles)/xmonad.md $(P-xmonad)/xmonad.md
