@@ -232,8 +232,7 @@ myManageHook = composeAll
      , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
      , title =? "cmus v2.9.1"         --> doShift ( myWorkspaces !! 7 )
      , className =? "Firefox"     --> doShift ( myWorkspaces !! 2 )
-     , className =? "Conky"       --> doShift ( myWorkspaces !! 3 )
-     , className =? "cmus"             --> doShift ( myWorkspaces !! 7 )
+     , className =? "calibre"             --> doShift ( myWorkspaces !! 3 )
      , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
