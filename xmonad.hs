@@ -230,6 +230,7 @@ myManageHook = composeAll
      , className =? "toolbar"         --> doFloat
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
      , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
+     , title =? "cmus v2.9.1"         --> doShift ( myWorkspaces !! 7 )
      , className =? "Firefox"     --> doShift ( myWorkspaces !! 2 )
      , className =? "Conky"       --> doShift ( myWorkspaces !! 3 )
      , className =? "cmus"             --> doShift ( myWorkspaces !! 7 )
@@ -256,7 +257,7 @@ myKeys =
         , ("M-<F2>",         spawn (myEditor ++  "~/.xmonad/xmonad.hs"))
         , ("M-<F3>",         spawn (myEditor ++  "~/.xmonad/xmonad.md"))
         , ("M-<F4>",         spawn "setxkbmap -layout us,ru -option grp:ctrl_shift_toggle")
-        , ("M-e",            spawn "evolution")
+        , ("M-S-e",            spawn "evolution")
         , ("M-n",           spawn (myTerminal ++ " -e newsboat"))
         , ("M-S-n",           spawn (myTerminal ++ " -e neomutt"))
         , ("M-c",            spawn (myTerminal ++ " -e cmus"))
