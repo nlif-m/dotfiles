@@ -206,7 +206,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| tabs
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
-myWorkspaces = [" dev ", " www ", " sys ", " doc ", " vbox ", " chat ", " cmus ", " vid ", " gfx "]
+myWorkspaces = [" dev ", " www ", " sys ", " doc ", " virt ", " chat ", " cmus ", " vid ", " gfx "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -231,7 +231,12 @@ myManageHook = composeAll
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
      , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
      , title =? "cmus v2.9.1"         --> doShift ( myWorkspaces !! 7 )
+     , title =? "Element"             --> doShift ( myWorkspaces !! 6 )
      , className =? "Firefox"     --> doShift ( myWorkspaces !! 2 )
+     , className =? "Telegram-desktop" --> doShift (myWorkspaces !! 5)
+     , className =? "telegram-desktop" --> doShift (myWorkspaces !! 5)
+     , className =? "element" --> doShift (myWorkspaces !! 5)
+     , className =? "Element" --> doShift (myWorkspaces !! 5)
      , className =? "calibre"             --> doShift ( myWorkspaces !! 3 )
      , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
