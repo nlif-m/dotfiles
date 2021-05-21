@@ -13,6 +13,7 @@
 * M-F1       translate this markdown to pdf than open in zathura
 * M-F2       open in editor haskell.hs
 * M-F3       open in editor haskell.md(this file) 
+* M-F4       set en and ru layout toggles by ctrl+shift
 * M-F10      lock system than suspend it
 * M-F12      shutdown system right now 
 
