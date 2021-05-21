@@ -19,6 +19,8 @@ Plugin 'lervag/vimtex'
 Plugin 'neomake/neomake'
 Plugin 'vim-airline/vim-airline'
 Plugin 'lyokha/vim-XkbSwitch'
+" Plugin 'neoclide/coc.nvim'
+
 
 
 " All of your Plugins must be added before the following line
