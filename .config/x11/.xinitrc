@@ -1,5 +1,4 @@
 setxkbmap -layout us,ru -option 'grp:ctrl_shift_toggle'
-source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 
 session=${1:-dwm}

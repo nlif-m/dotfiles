@@ -12,7 +12,7 @@ HISTFILE=~/.cache/zsh/history
 
 
 # Command on start
-umask u=rwx,g=,o=
+umask u=rwx,g=rx,o=rx
 
 # Completion.
 zmodload zsh/complist 
@@ -73,11 +73,11 @@ alias nb='newsboat'
 alias p='python'
 alias gre='gpg -r m.payunen@gmail.com -e'
 alias startx='startx ~/.config/x11/.xinitrc'
-alias vim='nvim'
 alias ls='ls --color'
 alias scr='cd ~/.local/share/scripts'
 alias dotf='cd ~/.config/dotfiles'
 alias stopit='sudo runit-init 0'
+alias vim='nvim'
 
 #------------------------------
 # Prompt
@@ -89,4 +89,4 @@ colors
 export PATH=~/.python/bin:$PATH
 export GSIP=git.yasal.ru
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh

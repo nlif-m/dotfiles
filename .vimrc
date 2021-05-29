@@ -2,27 +2,22 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'neoclide/coc.nvim'
+
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-surround'
-Plugin 'ycm-core/YouCompleteMe'
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'ycm-core/YouCompleteMe'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'lervag/vimtex'
-Plugin 'neomake/neomake'
-Plugin 'vim-airline/vim-airline'
-Plugin 'lyokha/vim-XkbSwitch'
-" Plugin 'neoclide/coc.nvim'
-
-
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -87,18 +82,39 @@ set noswapfile
 set encoding=utf-8 " Кодировка файлов по умолчанию
 set fileencodings=utf8,cp1251
 
-set clipboard+=unnamedplus
+set clipboard=unnamed
 set ruler
 
 set hidden
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
-let g:ycm_show_dianostics_ui = 0
 " Выключаем звук в Vim
 set visualbell t_vb=
 
+"Переключение табов по CMD+number для MacVim
+if has("gui_macvim")
+  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
+  " the right side. Ctrl-Shift-Tab goes the other way.
+  noremap <C-Tab> :tabnext<CR>
+  noremap <C-S-Tab> :tabprev<CR>
+
+  " Switch to specific tab numbers with Command-number
+  noremap <D-1> :tabn 1<CR>
+  noremap <D-2> :tabn 2<CR>
+  noremap <D-3> :tabn 3<CR>
+  noremap <D-4> :tabn 4<CR>
+  noremap <D-5> :tabn 5<CR>
+  noremap <D-6> :tabn 6<CR>
+  noremap <D-7> :tabn 7<CR>
+  noremap <D-8> :tabn 8<CR>
+  noremap <D-9> :tabn 9<CR>
+  " Command-0 goes to the last tab
+  noremap <D-0> :tablast<CR>
+endif
+
 set guifont=Monaco:h18
+colorscheme OceanicNext
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -108,9 +124,6 @@ let g:tex_conceal='abdmg'
 
 let g:XkbSwitchEnabled=1
 let g:XkbSwitchLib='/usr/local/lib/libxkbswitch.so.1.8.5'
-
-call neomake#configure#automake('nrww', 500)
-
 
 
 
