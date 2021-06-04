@@ -18,12 +18,13 @@ all: local config xmonad
 # Start of local
 local: bin
 
-bin: remaps
+bin: remaps 
 
 remaps:
 	mkdir -p $(P-local-bin) $(DEV_NULL)
-	rm -f $(P-local-bin)/remaps $(DEV_NULL)
-	ln -s $(P-dotfiles)/.local/bin/remaps $(P-local-bin)/remaps
+	rm -f $(P-local-bin)/"$@" $(DEV_NULL)
+	ln -s $(P-dotfiles)/.local/bin/"$@" $(P-local-bin)/"$@"
+
 # End of local
 
 # Start of config
@@ -34,7 +35,7 @@ nvim:
 	rm -f $(P-nvim)/init.vim $(DEV_NULL); 
 	ln -s $(P-dotfiles)/.config/nvim/init.vim $(P-nvim)/init.vim $(DEV_NULL);
 
-vim: 
+vimrc: 
 	mkdir -p $(P-vim) $(DEV_NULL); 
 	rm -f $(P-vim)/.vimrc $(DEV_NULL); 
 	ln -s $(P-dotfiles)/.vimrc $(P-vim)/.vimrc  $(DEV_NULL);
@@ -48,8 +49,8 @@ x11: xinitrc xprofile
 
 xprofile:
 	mkdir -p $(P-x11) $(DEV_NULL)
-	rm -f $(P-x11)/xprofile $(DEV_NULL)
-	ln -s $(P-dotfiles)/.config/x11/xprofile $(P-x11)/xprofile $(DEV_NULL)
+	rm -f $(P-x11)/"$@" $(DEV_NULL)
+	ln -s $(P-dotfiles)/.config/x11/"$@" $(P-x11)/"$@" $(DEV_NULL)
 
 xinitrc:
 	mkdir -p $(P-x11) $(DEV_NULL); 
