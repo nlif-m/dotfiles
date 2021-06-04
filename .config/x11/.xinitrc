@@ -1,5 +1,10 @@
 setxkbmap -layout us,ru -option 'grp:ctrl_shift_toggle'
 
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+else
+	. "$HOME/.xprofile"
+fi
 
 session=${1:-dwm}
 case $session in

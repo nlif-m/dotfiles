@@ -6,14 +6,28 @@ P-x11=~/.config/x11
 P-xmonad=~/.xmonad
 P-xmobar=~/.config/.xmobar
 P-zprofile=~/.config/shell
-
+P-local-bin=~/.local/bin
+local-bin-apps=remaps
 P-dotfiles=~/.config/dotfiles
 
 DEV_NULL=2>/dev/null
 
 
 
-all: nvim zshrc xinitrc zprofile xmonad
+all: local config xmonad
+# Start of local
+local: bin
+
+bin: remaps
+
+remaps:
+	mkdir -p $(P-local-bin) $(DEV_NULL)
+	rm -f $(P-local-bin)/remaps $(DEV_NULL)
+	ln -s $(P-dotfiles)/.local/bin/remaps $(P-local-bin)/remaps
+# End of local
+
+# Start of config
+config: nvim zshrc x11 zprofile
 
 nvim: 
 	mkdir -p $(P-nvim) $(DEV_NULL); 
@@ -30,16 +44,26 @@ zshrc:
 	rm -f $(P-zsh)/.zshrc $(DEV_NULL); 
 	ln -s $(P-dotfiles)/.config/zsh/.zshrc $(P-zsh)/.zshrc $(DEV_NULL);
 
+x11: xinitrc xprofile
+
+xprofile:
+	mkdir -p $(P-x11) $(DEV_NULL)
+	rm -f $(P-x11)/xprofile $(DEV_NULL)
+	ln -s $(P-dotfiles)/.config/x11/xprofile $(P-x11)/xprofile $(DEV_NULL)
+
 xinitrc:
 	mkdir -p $(P-x11) $(DEV_NULL); 
 	rm -f $(P-x11)/.xinitrc $(DEV_NULL);
 	ln -s $(P-dotfiles)/.config/x11/.xinitrc $(P-x11)/.xinitrc $(DEV_NULL);
 
+
 zprofile:
 	mkdir -p $(P-zprofile) $(DEV_NULL); 
 	rm -f ~/.zprofile $(DEV_NULL);
 	ln -s $(P-dotfiles)/profile ~/.zprofile $(DEV_NULL);
+# End of config
 
+# Start of Xmonad
 xmonad: xmobar xmonadMarkdown
 	mkdir -p $(P-xmonad) $(DEV_NULL)
 	rm -f $(P-xmonad)/xmonad.hs $(DEV_NULL)
@@ -55,3 +79,4 @@ xmonadMarkdown:
 	mkdir -p $(P-xmonad) $(DEV_NULL)
 	rm -f $(P-xmonad)/xmonad.md $(DEV_NULL)
 	ln -s $(P-dotfiles)/.xmonad/xmonad.md $(P-xmonad)/xmonad.md
+# End of Xmonad
