@@ -4,7 +4,6 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
-
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -78,6 +77,7 @@ alias scr='cd ~/.local/share/scripts'
 alias dotf='cd ~/.config/dotfiles'
 alias stopit='sudo runit-init 0'
 alias vim='nvim'
+alias apep8"=autopep8 --in-place --aggressive --aggressive"
 
 #------------------------------
 # Prompt
