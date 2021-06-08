@@ -6,6 +6,9 @@ else
 	. "$HOME/.xprofile"
 fi
 
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 session=${1:-dwm}
 case $session in
     xfce|xfce4 ) exec startxfce4;;
@@ -13,7 +16,7 @@ case $session in
                  exec dwm ;;
     i3|i3wm    ) exec i3;;
     plasma|kde ) exec startplasma-x11;;
-    xmonad     ) exec xmonad;;
+    xmonad     ) exec dbus-launch --exit-with-session xmonad;;
     # No known session, try to run it as command
     *          ) exec $1;;
 esac
