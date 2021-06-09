@@ -90,3 +90,5 @@ export PATH=~/.python/bin:$PATH
 export GSIP=git.yasal.ru
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+

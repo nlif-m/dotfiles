@@ -1,0 +1,12 @@
+[user]
+	email = m.payunen@gmail.com
+	name = nlif
+	signingkey = m.payunen@gmail.com
+[init]
+	defaultBranch = master
+[commit]
+	gpgsign = true
+[color]
+	diff = auto
+	status = auto
+	branch = auto

@@ -7,14 +7,17 @@ P-xmonad=~/.xmonad
 P-xmobar=~/.config/.xmobar
 P-zprofile=~/.config/shell
 P-local-bin=~/.local/bin
+P-gitconfig=~/.gitconfig
 local-bin-apps=remaps
+
 P-dotfiles=~/.config/dotfiles
 
 DEV_NULL=2>/dev/null
 
 
 
-all: local config xmonad
+.PHONY: all local bin remaps nvim vimrc zshrc x11 xprofile xinitrc zprofile xmonad xmobar xmonadMarkdown gitconfig
+all: local config xmonad gitconfig
 # Start of local
 local: bin
 
@@ -81,3 +84,7 @@ xmonadMarkdown:
 	rm -f $(P-xmonad)/xmonad.md $(DEV_NULL)
 	ln -s $(P-dotfiles)/.xmonad/xmonad.md $(P-xmonad)/xmonad.md
 # End of Xmonad
+
+gitconfig:
+	rm -f $(P-gitconfig) $(DEV_NULL)
+	ln -s $(P-dotfiles)/.gitconfig $(P-gitconfig)
