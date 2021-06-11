@@ -8,7 +8,6 @@ P-xmobar=~/.config/.xmobar
 P-zprofile=~/.config/shell
 P-local-bin=~/.local/bin
 P-gitconfig=~/.gitconfig
-local-bin-apps=remaps
 
 P-dotfiles=~/.config/dotfiles
 
@@ -16,17 +15,23 @@ DEV_NULL=2>/dev/null
 
 
 
-.PHONY: all local bin remaps nvim vimrc zshrc x11 xprofile xinitrc zprofile xmonad xmobar xmonadMarkdown gitconfig
+.PHONY: all local bin remaps nvim vimrc zshrc x11 xprofile xinitrc zprofile xmonad xmobar xmonadMarkdown gitconfig dmenu_otp
 all: local config xmonad gitconfig
 # Start of local
 local: bin
 
-bin: remaps 
+bin: remaps dmenu_otp
 
 remaps:
 	mkdir -p $(P-local-bin) $(DEV_NULL)
 	rm -f $(P-local-bin)/"$@" $(DEV_NULL)
 	ln -s $(P-dotfiles)/.local/bin/"$@" $(P-local-bin)/"$@"
+
+dmenu_otp:
+	mkdir -p $(P-local-bin) $(DEV_NULL)
+	rm -f $(P-local-bin)/"$@" $(DEV_NULL)
+	ln -s $(P-dotfiles)/.local/bin/"$@" $(P-local-bin)/"$@"
+
 
 # End of local
 
