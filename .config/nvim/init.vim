@@ -12,16 +12,22 @@ call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-surround'
-"Plugin 'ycm-core/YouCompleteMe'
+Plugin 'lervag/vimtex'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'jiangmiao/auto-pairs'
-"Plugin 'lervag/vimtex'
-Plugin 'neomake/neomake'
+
+Plugin 'ycm-core/YouCompleteMe'
+"lean & mean status/tabline for vim that's light as air 
 Plugin 'vim-airline/vim-airline'
+
+
 Plugin 'lyokha/vim-XkbSwitch'
-Plugin 'neoclide/coc.nvim'
 
+" Track the engine.
+Plugin 'SirVer/ultisnips'
 
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,6 +50,11 @@ filetype plugin indent on    " required
 " :RainbowToggle  --you can use it to toggle this plugin.
 " :RainbowToggle  --you can use it to toggle this plugin.
 let g:rainbow_active = 1
+"
+" Enable autocompletion:
+set wildmode=longest,list,full
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Настройки табов для Python, согласно рекоммендациям
 set tabstop=4 
@@ -107,19 +118,24 @@ let g:tex_conceal='abdmg'
 
 let g:XkbSwitchEnabled=1
 let g:XkbSwitchLib='/usr/local/lib/libxkbswitch.so.1.8.5'
+let g:python3_host_prog = expand('~/.python/bin/python3.9')
+
+
+" Use tab instead of Ctrl-n
+imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+imap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
+
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<C-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 
 
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-css', 'coc-html', 'coc-htmldjango', 'coc-html-css-support', 'coc-python', 'coc-pydocstring', 'coc-sh', 'coc-texlab', 'coc-highlight', 'coc-htmlhint']
 
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
