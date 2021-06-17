@@ -9,28 +9,20 @@ P-zprofile=~/.config/shell
 P-local-bin=~/.local/bin
 P-gitconfig=~/.gitconfig
 P-dotfiles=~/.config/dotfiles
+# programs from dotfile/.local/.bin to install to ~/.local/.bin
+APP_LIST= remaps passmenu_otp  booksplit tag
 
 DEV_NULL=2>/dev/null
 
 
 
-.PHONY: all local bin remaps nvim vimrc zshrc x11 xprofile xinitrc zprofile xmonad xmobar xmonadMarkdown gitconfig passmenu_otp
+.PHONY: all local bin  nvim vimrc zshrc x11 xprofile xinitrc zprofile xmonad xmobar xmonadMarkdown gitconfig 
 all: local config xmonad gitconfig
 # Start of local
 local: bin
 
-bin: remaps passmenu_otp
-
-remaps:
-	mkdir -p $(P-local-bin) $(DEV_NULL)
-	rm -f $(P-local-bin)/"$@" $(DEV_NULL)
-	ln -s $(P-dotfiles)/.local/bin/"$@" $(P-local-bin)/"$@"
-
-passmenu_otp:
-	mkdir -p $(P-local-bin) $(DEV_NULL)
-	rm -f $(P-local-bin)/"$@" $(DEV_NULL)
-	ln -s $(P-dotfiles)/.local/bin/"$@" $(P-local-bin)/"$@"
-
+bin: 
+	$(foreach app,$(APP_LIST), mkdir -p $(P-local-bin) $(DEV_NULL); rm -f $(P-local-bin)/"$(app)" $(DEV_NULL); ln -s $(P-dotfiles)/.local/bin/"$(app)" $(P-local-bin)/"$(app)";)
 
 # End of local
 
