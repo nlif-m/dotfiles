@@ -64,13 +64,10 @@ bindkey -v '^?' backward-delete-char
 
 # Aliases
 alias la="ls -al --color"
-alias zshconfig="vim  ~/.zshrc"
+alias zshc="$EDITOR ~/.config/zsh/.zshrc"
 alias pgp='pass git push origin master'
 alias sp='sudo pacman' 
-alias s='sudo systemctl'
-alias nb='newsboat'
 alias p='python'
-alias gre='gpg -r m.payunen@gmail.com -e'
 alias startx='startx ~/.config/x11/.xinitrc'
 alias ls='ls --color'
 alias scr='cd ~/.local/share/scripts'
@@ -79,6 +76,8 @@ alias stopit='sudo runit-init 0'
 alias vim='nvim'
 alias apep8"=autopep8 --in-place --aggressive --aggressive"
 alias yta="youtube-dl -x -f bestaudio/best"
+alias ytao="youtube-dl -x -f bestaudio/best -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -ik"
+
 
 #------------------------------
 # Prompt
