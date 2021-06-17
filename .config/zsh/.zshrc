@@ -78,6 +78,7 @@ alias dotf='cd ~/.config/dotfiles'
 alias stopit='sudo runit-init 0'
 alias vim='nvim'
 alias apep8"=autopep8 --in-place --aggressive --aggressive"
+alias yta="youtube-dl -x -f bestaudio/best"
 
 #------------------------------
 # Prompt
