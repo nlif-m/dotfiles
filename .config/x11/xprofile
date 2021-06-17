@@ -1,3 +1,4 @@
 remaps &
 xsetroot -solid \#11111f &
+uwsgi --ini /etc/uwsgi/searx.ini --daemonize /tmp/searx.log &
 
