@@ -2,8 +2,8 @@
 
 
 OTP_FOLDER=$PASSWORD_STORE_DIR/OTP
-OTPS=$(ls -1 $OTP_FOLDER)
+OTPS=$(ls -1 "$OTP_FOLDER")
 OTP_LIST=$(for i in $OTPS; do echo "$i" | sed "s/\.gpg//" ;done)
 SELECTED_OTP=$(echo "$OTP_LIST" | dmenu)
-[[ -n $SELECTED_OTP ]] || exit
-pass otp show -c OTP/$SELECTED_OTP 2>/dev/null
+[ -n "$SELECTED_OTP" ] || exit
+pass otp show -c OTP/"$SELECTED_OTP" 2>/dev/null
