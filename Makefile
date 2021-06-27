@@ -10,7 +10,7 @@ P-local-bin=~/.local/bin
 P-gitconfig=~/.gitconfig
 P-dotfiles=~/.config/dotfiles
 # programs from dotfile/.local/.bin to install to ~/.local/.bin
-APP_LIST= remaps passmenu_otp  booksplit tag
+APP_LIST= remaps passmenu_otp  booksplit tag dmenumount
 
 DEV_NULL=2>/dev/null
 
