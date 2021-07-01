@@ -138,7 +138,8 @@ let g:UltiSnipsExpandTrigger="<C-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-
+" Disable syntax_conceal
+let g:vimtex_syntax_conceal_default=0
 
 
 
