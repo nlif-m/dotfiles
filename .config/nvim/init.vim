@@ -29,6 +29,7 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+Plugin 'Yggdroot/indentLine'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -100,6 +101,8 @@ set fileencodings=utf8,cp1251
 
 set ruler
 
+set title
+
 set hidden
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
@@ -109,6 +112,9 @@ let g:ycm_show_dianostics_ui = 0
 set visualbell t_vb=
 
 set guifont=Monaco:h18
+
+set undofile
+set inccommand=nosplit
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -135,7 +141,8 @@ let g:UltiSnipsExpandTrigger="<C-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" Disable syntax_conceal
+let g:vimtex_syntax_conceal_default=0
 
-
-
+autocmd BufWritePost *.py :!autopep8 --in-place --aggressive --aggressive %
 
