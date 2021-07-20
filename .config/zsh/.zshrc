@@ -78,6 +78,10 @@ alias apep8"=autopep8 --in-place --aggressive --aggressive"
 alias yta="youtube-dl -x -f bestaudio/best"
 alias ytao="youtube-dl -x -f bestaudio/best -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -ik"
 
+## Git 
+alias gis="git status"
+alias gia="git add"
+alias gic="git commit -v"
 
 #------------------------------
 # Prompt
