@@ -30,6 +30,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 Plugin 'Yggdroot/indentLine'
+Plugin 'dense-analysis/ale'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -144,5 +145,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Disable syntax_conceal
 let g:vimtex_syntax_conceal_default=0
 
-autocmd BufWritePost *.py :!autopep8 --in-place --aggressive --aggressive %
+nnoremap \a :!autopep8 --in-place --aggressive --aggressive %
 
