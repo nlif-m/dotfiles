@@ -11,7 +11,7 @@ HISTFILE=~/.cache/zsh/history
 
 
 # Command on start
-umask u=rwx,g=rx,o=rx
+umask u=rwx,g=rx,o=
 
 # Completion.
 zmodload zsh/complist 
