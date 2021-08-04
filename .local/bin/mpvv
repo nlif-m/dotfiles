@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+folder_with_videos=~/Videos/watch_later 
+selected_video=$(ls $folder_with_videos | dmenu -l 20) || exit
+selected_video="$folder_with_videos/$selected_video"
+
+mpv "$selected_video" && answer=$(printf "save\ndelete" | dmenu -p "What to with video ?" -l 2)
+
+if [ "$answer" = "delete" ];
+then 
+    rm "$selected_video"
+fi
+
+
