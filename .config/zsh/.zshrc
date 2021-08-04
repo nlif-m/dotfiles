@@ -82,6 +82,8 @@ alias ytao="youtube-dl -x -f bestaudio/best -o '%(playlist)s/%(playlist_index)s 
 alias gis="git status"
 alias gia="git add"
 alias gic="git commit -v"
+alias gid="git diff"
+
 
 #------------------------------
 # Prompt
