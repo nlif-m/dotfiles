@@ -73,7 +73,6 @@ alias ls='ls --color'
 alias scr='cd ~/.local/share/scripts'
 alias dotf='cd ~/.config/dotfiles'
 alias stopit='sudo runit-init 0'
-alias vim='nvim'
 alias apep8"=autopep8 --in-place --aggressive --aggressive"
 alias yta="youtube-dl -x -f bestaudio/best"
 alias ytao="youtube-dl -x -f bestaudio/best -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -ik"
