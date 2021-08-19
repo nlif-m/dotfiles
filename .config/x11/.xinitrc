@@ -11,7 +11,7 @@ session=${1:-dwm}
 case $session in
     xfce|xfce4 ) exec startxfce4;;
     dwm        ) slstatus & 
-                 exec dwm ;;
+                 exec ssh-agent dwm ;;
     i3|i3wm    ) exec i3;;
     plasma|kde ) exec startplasma-x11;;
     xmonad     ) exec dbus-launch --exit-with-session xmonad;;
