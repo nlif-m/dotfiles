@@ -1,26 +1,70 @@
-set nocompatible              " be iMproved, required
+" Setting up Vundle - the vim plugin bundler
+    let iCanHazVundle=1
+    let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+    if !filereadable(vundle_readme) 
+        echo "Installing Vundle.."
+        echo ""
+        silent !mkdir -p ~/.vim/bundle
+        silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+        let iCanHazVundle=0
+    endif
+set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-Plugin 'neoclide/coc.nvim'
+Plugin 'ycm-core/YouCompleteMe'
 
-Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-syntastic/syntastic'
+
+Plugin 'nvie/vim-flake8'
+
+Plugin 'jnurmine/Zenburn'
+
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'ctrlpvim/ctrlp.vim'
+
 Plugin 'tpope/vim-surround'
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'ycm-core/YouCompleteMe'
-Plugin 'frazrepo/vim-rainbow'
-Plugin 'jiangmiao/auto-pairs'
+
 Plugin 'lervag/vimtex'
+
+Plugin 'frazrepo/vim-rainbow'
+
+Plugin 'jiangmiao/auto-pairs'
+
+"lean & mean status/tabline for vim that's light as air 
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'lyokha/vim-XkbSwitch'
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+Plugin 'Yggdroot/indentLine'
+
+Plugin 'dense-analysis/ale'
 " All of your Plugins must be added before the following line
+if iCanHazVundle == 0
+            echo "Installing Vundles, please ignore key map error messages"
+            echo ""
+            :PluginInstall
+endif
+
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -33,35 +77,62 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Setting up Vundle - the vim plugin bundler end
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable folding
+" Включаем возможность скрыть часть кода, по отступу
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+" Включаем скрытие через пробел
+nnoremap <space> za
+
+" pep 8 indentation
+" Настройки табов для Python, согласно рекоммендациям
+set tabstop=4
+set softtabstop=4 "4 пробела в табе
+set shiftwidth=4
+set textwidth=79
+set expandtab "Ставим табы пробелами
+set autoindent " Автоотступ
+set fileformat=unix
+
+let python_highlight_all = 1
+" Deleting  Unnecessary Whitespace
+" Перед сохранением вырезаем пробелы на концах (только в .py файлах)
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+
+" Smart inden's after key words
+" В .py файлах включаем умные отступы после ключевых слов
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " frazrepo/vim-rainbow set up
 " :RainbowToggle  --you can use it to toggle this plugin.
 " :RainbowToggle  --you can use it to toggle this plugin.
 let g:rainbow_active = 1
+"
+" Enable autocompletion:
+set wildmode=longest,list,full
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Настройки табов для Python, согласно рекоммендациям
-set tabstop=4 
-set shiftwidth=4
-set smarttab
-set expandtab "Ставим табы пробелами
-set softtabstop=4 "4 пробела в табе
-" Автоотступ
-set autoindent
-" Подсвечиваем все что можно подсвечивать
-let python_highlight_all = 1
 " Включаем 256 цветов в терминале, мы ведь работаем из иксов?
 " Нужно во многих терминалах, например в gnome-terminal
 set t_Co=256
 
-" Перед сохранением вырезаем пробелы на концах (только в .py файлах)
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
-" В .py файлах включаем умные отступы после ключевых слов
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-
 syntax on "Включить подсветку синтаксиса
 
-set nu "Включаем нумерацию строк
+" Line Numbering
+"Включаем нумерацию строк
+set nu 
+
 set mousehide "Спрятать курсор мыши когда набираем текст
 set mouse=a "Включить поддержку мыши
 set termencoding=utf-8 "Кодировка терминала
@@ -76,45 +147,37 @@ set showtabline=1
 set wrap
 set linebreak
 
+colorscheme zenburn
+
 " Вырубаем .swp и ~ (резервные) файлы
 set nobackup
 set noswapfile
-set encoding=utf-8 " Кодировка файлов по умолчанию
+
+" UTF-8 support
+set encoding=utf-8 
 set fileencodings=utf8,cp1251
 
-set clipboard=unnamed
 set ruler
 
+set title
+
 set hidden
+
+set clipboard=unnamedplus
+
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
+
+" YouCompleteMe
+let g:ycm_show_dianostics_ui = 0
+let g:ycm_autoclose_preview_window_after_completion=1 
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Выключаем звук в Vim
 set visualbell t_vb=
 
-"Переключение табов по CMD+number для MacVim
-if has("gui_macvim")
-  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
-  " the right side. Ctrl-Shift-Tab goes the other way.
-  noremap <C-Tab> :tabnext<CR>
-  noremap <C-S-Tab> :tabprev<CR>
-
-  " Switch to specific tab numbers with Command-number
-  noremap <D-1> :tabn 1<CR>
-  noremap <D-2> :tabn 2<CR>
-  noremap <D-3> :tabn 3<CR>
-  noremap <D-4> :tabn 4<CR>
-  noremap <D-5> :tabn 5<CR>
-  noremap <D-6> :tabn 6<CR>
-  noremap <D-7> :tabn 7<CR>
-  noremap <D-8> :tabn 8<CR>
-  noremap <D-9> :tabn 9<CR>
-  " Command-0 goes to the last tab
-  noremap <D-0> :tablast<CR>
-endif
-
-set guifont=Monaco:h18
-colorscheme OceanicNext
+set undofile
+"set inccommand=nosplit
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -123,24 +186,23 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 
 let g:XkbSwitchEnabled=1
-let g:XkbSwitchLib='/usr/local/lib/libxkbswitch.so.1.8.5'
+let g:XkbSwitchLib='/usr/lib/libxkbswitch.so.1.8.5'
+let g:python3_host_prog = expand('/usr/bin/env python3')
 
+" Use tab instead of Ctrl-n
+imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+imap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
 
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<C-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" Disable syntax_conceal
+let g:vimtex_syntax_conceal_default=0
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+nnoremap \a :!autopep8 --in-place --aggressive --aggressive %

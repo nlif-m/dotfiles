@@ -1,6 +1,6 @@
 # PATHs to apps dirs
 P-nvim=~/.config/nvim
-P-vim=~/.vimrc
+P-vim=~
 P-zsh=~/.config/zsh
 P-x11=~/.config/x11
 P-xmonad=~/.xmonad
@@ -17,7 +17,7 @@ DEV_NULL=2>/dev/null
 
 
 .PHONY: all local bin  nvim vimrc zshrc x11 xprofile xinitrc zprofile xmonad xmobar xmonadMarkdown gitconfig 
-all: local config xmonad gitconfig
+all: local config xmonad gitconfig vimrc
 # Start of local
 local: bin
 
@@ -27,7 +27,7 @@ bin:
 # End of local
 
 # Start of config
-config: nvim zshrc x11 zprofile
+config: zshrc x11 zprofile
 
 nvim: 
 	mkdir -p $(P-nvim) $(DEV_NULL); 
@@ -36,8 +36,8 @@ nvim:
 
 vimrc: 
 	mkdir -p $(P-vim) $(DEV_NULL); 
-	rm -f $(P-vim)/.vimrc $(DEV_NULL); 
-	ln -s $(P-dotfiles)/.vimrc $(P-vim)/.vimrc  $(DEV_NULL);
+	rm -f ~/.vimrc $(DEV_NULL); 
+	ln -s ~/.config/dotfiles/.vimrc ~/.vimrc  $(DEV_NULL);
 
 zshrc:
 	mkdir -p $(P-zsh) $(DEV_NULL); 
