@@ -14,7 +14,7 @@ export LANGUAGE=en_US.UTF-8
 export GPG_TTY=$(tty)
 
 # Default programs:
-export EDITOR="nvim"
+export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
 
