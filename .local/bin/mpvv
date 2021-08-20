@@ -14,7 +14,8 @@ selected_video_pre=$( \
                     ) || exit
 selected_video_full_path="$folder_with_videos/$selected_video_pre"
 
-mpv "$selected_video_full_path" && answer=$(printf "save\ndelete" | dmenu -fn "FreeMono-20" -p "What to do with $selected_video_pre ?" -l 2)
+mpv "$selected_video_full_path" && answer=$(printf "save\ndelete" | \
+    dmenu -fn "FreeMono-12" -p "What to do with $selected_video_pre ?" -l 2)
 
 if [ "$answer" = "delete" ];
 then 
