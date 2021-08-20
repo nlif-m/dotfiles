@@ -84,6 +84,7 @@ alias gia="git add"
 alias gic="git commit -v"
 alias gid="git diff"
 alias gil="git log -p"
+alias gip="git push"
 
 
 #------------------------------
