@@ -1,8 +1,12 @@
 #!/bin/sh
 folder=$(pwd)
-git clone https://github.com/vim/vim.git ~/vim-t
+PREFIX=~/.local/src
+VIM_FOLDER=vim
+mkdir -p "$PREFIX"
 
-cd ~/vim-t/src
+git clone https://github.com/vim/vim.git "$PREFIX"/"$VIM_FOLDER"
+
+cd "$PREFIX"/"$VIM_FOLDER"/src || echo "Error cd $PREFIX/src" ; exit
 
  ./configure --with-features=huge --with-python3-command=python3 --enable-python3interp=yes --with-compiledby=$USER
 
