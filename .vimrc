@@ -1,8 +1,8 @@
 " Setting up Vundle - the vim plugin bundler
     let iCanHazVundle=1
-    let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+    let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md') 
     if !filereadable(vundle_readme) 
-        echo "Installing Vundle.."
+	echo "Installing Vundle.."
         echo ""
         silent !mkdir -p ~/.vim/bundle
         silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
@@ -25,7 +25,7 @@ Plugin 'ycm-core/YouCompleteMe'
 
 Plugin 'vim-syntastic/syntastic'
 
-Plugin 'nvie/vim-flake8'
+Plugin 'nvie/vim-flake8' " dont forget install flake8 
 
 Plugin 'jnurmine/Zenburn'
 
@@ -50,11 +50,15 @@ Plugin 'lyokha/vim-XkbSwitch'
 Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
+
 Plugin 'honza/vim-snippets'
 
 Plugin 'Yggdroot/indentLine'
 
 Plugin 'dense-analysis/ale'
+
+Plugin 'markonm/traces.vim'
+
 " All of your Plugins must be added before the following line
 if iCanHazVundle == 0
             echo "Installing Vundles, please ignore key map error messages"
@@ -99,7 +103,7 @@ nnoremap <space> za
 set tabstop=4
 set softtabstop=4 "4 пробела в табе
 set shiftwidth=4
-set textwidth=79
+" set textwidth=79
 set expandtab "Ставим табы пробелами
 set autoindent " Автоотступ
 set fileformat=unix
@@ -163,7 +167,6 @@ set title
 
 set hidden
 
-set clipboard=unnamedplus
 
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
@@ -173,11 +176,16 @@ let g:ycm_show_dianostics_ui = 0
 let g:ycm_autoclose_preview_window_after_completion=1 
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 " Выключаем звук в Vim
 set visualbell t_vb=
 
-set undofile
 "set inccommand=nosplit
+
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -206,3 +214,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:vimtex_syntax_conceal_default=0
 
 nnoremap \a :!autopep8 --in-place --aggressive --aggressive %
+
+"autocmd BufWritePost *.py call flake8#Flake8()
+
+set clipboard=unnamedplus
