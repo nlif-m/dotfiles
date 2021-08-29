@@ -63,7 +63,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Aliases
-alias la="ls -al --color"
+alias la="ls -alh --color"
 alias zshc="$EDITOR ~/.config/zsh/.zshrc"
 alias pgp='pass git push origin master'
 alias sp='sudo pacman' 
@@ -72,11 +72,13 @@ alias startx='startx ~/.config/x11/.xinitrc'
 alias ls='ls --color'
 alias scr='cd ~/.local/share/scripts'
 alias dotf='cd ~/.config/dotfiles'
-alias stopit='sudo runit-init 0'
 alias apep8"=autopep8 --in-place --aggressive --aggressive"
+alias se="sudoedit"
+
+## youtube-dl
 alias yta="youtube-dl -x -f bestaudio/best"
 alias ytao="youtube-dl -x -f bestaudio/best -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -ik"
-alias se="sudoedit"
+alias ytpo="youtube-dl -f 'best[height<=729]' -o '%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s'"
 
 ## Git 
 alias gis="git status"
