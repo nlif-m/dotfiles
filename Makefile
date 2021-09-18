@@ -8,9 +8,10 @@ P-xmobar=~/.config/.xmobar
 P-zprofile=~/.config/shell
 P-local-bin=~/.local/bin
 P-gitconfig=~/.gitconfig
+P-brave-flags.conf=~/.config
 P-dotfiles=~/.config/dotfiles
 # programs from dotfile/.local/.bin to install to ~/.local/.bin
-APP_LIST= remaps passmenu_otp  booksplit tag dmenumount dmenuumount mpvv
+APP_LIST= remaps passmenu_otp  booksplit tag dmenumount dmenuumount mpvv dlFromQueue
 
 DEV_NULL=2>/dev/null
 
@@ -22,12 +23,12 @@ all: local config xmonad gitconfig vimrc
 local: bin
 
 bin: 
-	$(foreach app,$(APP_LIST), mkdir -p $(P-local-bin) $(DEV_NULL); rm -f $(P-local-bin)/"$(app)" $(DEV_NULL); ln -s $(P-dotfiles)/.local/bin/"$(app)" $(P-local-bin)/"$(app)";)
+	$(foreach app,$(APP_LIST), mkdir -p $(P-local-bin) $(DEV_NULL); rm -f $(P-local-bin)/$(app) $(DEV_NULL); ln -s $(P-dotfiles)/.local/bin/$(app) $(P-local-bin)/$(app);)
 
 # End of local
 
 # Start of config
-config: zshrc x11 zprofile
+config: zshrc x11 zprofile brave-flags.conf
 
 nvim: 
 	mkdir -p $(P-nvim) $(DEV_NULL); 
@@ -61,6 +62,13 @@ zprofile:
 	mkdir -p $(P-zprofile) $(DEV_NULL); 
 	rm -f ~/.zprofile $(DEV_NULL);
 	ln -s $(P-dotfiles)/profile ~/.zprofile $(DEV_NULL);
+
+
+brave-flags.conf:
+	mkdir -p $(P-brave-flags.conf) $(DEV_NULL); 
+	rm -f $(P-brave-flags.conf)/"$@" $(DEV_NULL);
+	ln -s $(P-dotfiles)/.config/"$@" $(P-brave-flags.conf)/"$@" $(DEV_NULL);
+
 # End of config
 
 # Start of Xmonad
