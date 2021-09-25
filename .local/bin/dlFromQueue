@@ -3,11 +3,13 @@
 script_name=$(basename -- "$0")
 
 if pidof -x "$script_name" -o $$ >/dev/null;then
-       echo "An another instance of this script is already running, please clear all the sessions of this script before starting a new session"
-          exit 1
+    notify-send "Another instance downloading" "An another instance of this script is already running, please clear all the sessions of this script before starting a new session";
+    exit 1
 fi
 
 script_to_download=~/.newsboat/downloadFromQueue.py
 queue_file=~/.newsboat/queue
 how_many_queue=$(wc -l < $queue_file)
 for i in $(seq 1 $how_many_queue); do python "$script_to_download" ; done
+
+notify-send FINISH_DOWNLOADING "From queue"
