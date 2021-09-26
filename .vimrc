@@ -168,6 +168,7 @@ set title
 set hidden
 
 
+set pastetoggle=<F3>
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
