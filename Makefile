@@ -18,7 +18,7 @@ DEV_NULL=2>/dev/null
 
 
 .PHONY: all local bin  nvim vimrc zshrc x11 xprofile xinitrc zprofile xmonad xmobar xmonadMarkdown gitconfig 
-all: local config xmonad gitconfig vimrc
+all: local config  gitconfig vimrc
 # Start of local
 local: bin
 
