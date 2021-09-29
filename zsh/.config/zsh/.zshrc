@@ -98,7 +98,7 @@ alias gip="git push"
 autoload -U colors zsh/terminfo
 colors
 
-export PATH=~/.python/bin:$PATH
+#export PATH=~/.python/bin:$PATH
 export GSIP=git.yasal.ru
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

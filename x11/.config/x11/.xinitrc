@@ -15,6 +15,8 @@ case $session in
     i3|i3wm    ) exec i3;;
     plasma|kde ) exec startplasma-x11;;
     xmonad     ) exec dbus-launch --exit-with-session xmonad;;
+    gnome      ) exec gnome-shell;;
+    spectr     ) exec spectrwm;;
     # No known session, try to run it as command
     *          ) exec $1;;
 esac
