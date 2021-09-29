@@ -11,6 +11,10 @@ gnu make
 ```sh
 sudo pacman -S stow make
 ```
+### Debian/Ubuntu/Linux Mint
+```sh
+sudo apt install stow make
+```
 # Install guide
 
 ```sh
