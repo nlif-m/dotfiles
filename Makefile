@@ -5,8 +5,8 @@ stow:
 install: stow
 	$(foreach app,$(available_apps), stow $(app);)
 
-uninstall: stow
-	$(foreach app,$(available_apps), stow -D $(app);)
+uninstall: 
+	$(foreach app,$(available_apps), stow -D $(app) stow;)
 
 
 
