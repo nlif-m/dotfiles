@@ -5,7 +5,7 @@ gnu stow
 gnu make
 ```
 
-## Install dependence
+## Install dependencies
 
 ### Arch/Artix linux
 ```sh
