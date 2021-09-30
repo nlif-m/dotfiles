@@ -5,12 +5,11 @@
 folder_with_videos=/home/nlif/Videos/watch_later 
 folder_with_videos_for_sed="s/\/home\/nlif\/Videos\/watch_later\///" 
 selected_video_pre=$( \
-                find "$folder_with_videos"  \ | 
-                stest -f |
-                tail -n +2 | \
-                sed $folder_with_videos_for_sed | \
-                sort |  \
-                dmenu -i -fn "FreeMono-no-20" -l 20 \
+		    find "$folder_with_videos" -type f  |
+		    tail -n +2 | \
+		    sed $folder_with_videos_for_sed | \
+		    sort |  \
+		    dmenu -i -fn "FreeMono-no-20" -l 20 \
                     ) || exit
 selected_video_full_path="$folder_with_videos/$selected_video_pre"
 
