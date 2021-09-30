@@ -74,8 +74,13 @@ alias scr='cd ~/.local/share/scripts'
 alias dotf='cd ~/.config/dotfiles'
 alias apep8"=autopep8 --in-place --aggressive --aggressive"
 alias se="sudoedit"
+
+## Task warrior
 alias t="task"
 alias ta="task add"
+alias tap="task add project:" # work when write alias and tap TAB.
+alias tm="task modify"
+
 
 ## youtube-dl
 alias yta="youtube-dl -x -f bestaudio/best"
