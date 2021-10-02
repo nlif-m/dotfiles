@@ -84,7 +84,8 @@ alias tm="task modify"
 
 ## youtube-dl
 alias yta="youtube-dl -x -f bestaudio/best"
-alias ytao="youtube-dl -x -f bestaudio/best -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -ik"
+### youtube-dl audio playlist
+alias ytap='youtube-dl -i --http-chunk-size 10 --download-archive "~/Music/ALREADY.txt" -x -f bestaudio -o "~/Music/%(playlist)s/%(uploader)s-%(title)s.%(ext)s"' 
 alias ytpo="youtube-dl -f 'best[height<=729]' -o '%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s'"
 
 ## Git 
