@@ -80,6 +80,7 @@ alias t="task"
 alias ta="task add"
 alias tap="task add project:" # work when write alias and tap TAB.
 alias tm="task modify"
+alias td="task done"
 
 
 ## youtube-dl
