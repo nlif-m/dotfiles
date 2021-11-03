@@ -74,6 +74,7 @@ alias scr='cd ~/.local/share/scripts'
 alias dotf='cd ~/.config/dotfiles'
 alias apep8"=autopep8 --in-place --aggressive --aggressive"
 alias se="sudoedit"
+alias pdfcompress="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile=compressed_PDF_file.pdf input_PDF_file.pdf"
 
 ## Task warrior
 alias t="task"
