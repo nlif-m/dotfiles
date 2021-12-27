@@ -9,12 +9,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
-# MY CONFIG
 # F1-F12 shortcuts(F1 == 67, F2 == 68,...,F10 == 77, F11 == 95, F12 == 96)
-bindcode $mod+67 exec firefox
-bindcode $mod+68 exec "setxkbmap -layout us,ru -option 'grp:ctrl_shift_toggle'
+bindcode $mod+67 exec "groff -ms -T pdf ~/.config/i3/i3.ms | zathura - "
+bindcode $mod+68 exec "setxkbmap -layout us,ru -option 'grp:ctrl_shift_toggle'"
 bindcode $mod+69 exec "xrandr --output DVI-D-1 -mode 1600x900  --right-of HDMI-1 --auto"
 bindcode $mod+70 exec firefox
 bindcode $mod+71 exec firefox
@@ -22,27 +21,40 @@ bindcode $mod+72 exec firefox
 bindcode $mod+73 exec firefox
 bindcode $mod+74 exec firefox
 bindcode $mod+75 exec killall -SIGUSR1 py3status
-bindcode $mod+76 exec "i3lock -c 000000 && systemctl suspend" 
+bindcode $mod+76 exec "slock loginctl suspend -i"  # F10
 bindcode $mod+95 exec reboot
 bindcode $mod+96 exec poweroff
 
 
-
+bindsym $mod+Shift+d exec "passmenu"
+bindsym $mod+d exec "rofi -show run"
+bindsym $mod+Shift+s exec "rofi -show ssh"
+bindsym $mod+n exec "$TERMINAL -e newsboat"
+bindsym $mod+Shift+n exec neomutt
+bindsym $mod+c exec cmus
+bindsym $mod+Shift+Return exec st
+bindsym $mod+t exec "htop"
+bindsym $mod+Shift+t exec thunar
+bindsym $mod+Shift+m exec mpvv
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q exec "i3-msg exit"
+bindsym $mod+q kill
+bindsym $mod+r mode "resize"
+bindsym $mod+f fullscreen toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # Auto move tabs
 
-for_window [class="Navigator"] move to workspace $ws3
 for_window [class="qBittorrent"] move to workspace $ws7
 for_window [class="Telegram"] move to workspace $ws8
-for_window [class="Com.github.jmoerman.go-for-it"] move to workspace $ws10
-
 
 # Autostart programs 
 
 exec "telegram-desktop"
-exec "xrandr --output HDMI-A-0 --mode 1920x1080"
-exec "xrandr --output DVI-D-1 --right-of HDMI-1 --auto"
-exec "qbittorrent"
 
 #END OF CONFIG
 # Font for window titles. Will also be used by the bar unless a different font
@@ -66,18 +78,14 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec st
+
+
 
 # kill focused window
-bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+
 
 # change focus
 bindsym $mod+h focus left
@@ -104,18 +112,14 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+n split h
+#bindsym $mod+n split h
 
 # split in vertical orientation
-bindsym $mod+m split v
+#bindsym $mod+m split v
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+
+
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -166,12 +170,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -198,10 +196,21 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command py3status -c ~/.config/i3status/config
+    #font pango:DejaVu Sans Mono, FontAwesome 12
+    position top
+    status_command /usr/bin/i3status-rs ~/.config/i3status/config.toml
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
 }

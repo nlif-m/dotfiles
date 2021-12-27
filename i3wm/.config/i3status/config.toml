@@ -1,0 +1,31 @@
+theme = "gruvbox-dark"
+icons = "none"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_used_percents}"
+format_swap = "{swap_used_percents}"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 5
+format = "%a %d-%m-%Y %r"
+
+[[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+interval = 15
+
+[[block]]
+block = "networkmanager"
+on_click = "$TERMINAL -e nmtui"
+interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+", "virbr.*"]
+interface_name_include = []
