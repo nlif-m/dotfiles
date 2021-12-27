@@ -1,4 +1,5 @@
-available_apps=git i3wm nvim profile scripts stow tmux vim x11 zsh brave-tor 
+available_apps=git i3wm nvim profile scripts stow tmux vim x11 zsh rofi
+disabled_apps= brave-tor
 stow:
 	stow stow
 

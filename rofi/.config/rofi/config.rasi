@@ -1,0 +1,6 @@
+configuration {
+    modi: "window,drun,ssh,combi";
+    font: "FreeMono 14";
+    combi-modi: "window,drun,ssh";
+}
+@theme "gruvbox-dark-soft"
