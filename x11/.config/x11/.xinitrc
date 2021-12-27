@@ -7,14 +7,25 @@ else
 fi
 
 
-session=${1:-dwm}
+default_wm=i3
+
+startup_dmw(){
+    slstatus & 
+    redshift &
+    emacs --daemon &
+    exec ssh-agent dwm 
+}
+startup_i3 () {
+    redshift &
+    exec ssh-agent i3
+}
+    
+
+session=${1:-$default_wm}
 case $session in
     xfce|xfce4 ) exec startxfce4;;
-    dwm        ) slstatus & 
-                 redshift &
-                 emacs --daemon &
-                 exec ssh-agent dwm ;;
-    i3|i3wm    ) exec i3;;
+    dwm        ) startup_dmw;;
+    i3|i3wm    ) startup_i3;;
     plasma|kde ) exec startplasma-x11;;
     xmonad     ) exec dbus-launch --exit-with-session xmonad;;
     awesome    ) exec awesome;;
