@@ -9,6 +9,7 @@ format_swap = "{swap_used_percents}"
 
 [[block]]
 block = "cpu"
+on_click = "$TERMINAL -e htop"
 interval = 1
 
 [[block]]
