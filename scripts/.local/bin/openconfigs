@@ -1,0 +1,6 @@
+#!/bin/sh
+
+editor=emacs
+configs="$HOME/.local/bin/openconfigs\n$HOME/.config/i3/c\n$HOME/.config/i3status/config.toml\n$HOME/.vimrc\n$HOME/.emacs.d/init.el"
+selected=$(printf $configs | rofi -dmenu) || exit
+$editor $selected
