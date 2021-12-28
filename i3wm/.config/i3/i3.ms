@@ -47,6 +47,9 @@ M-t      htop
 M-S-t      thunar
 .BL 
 M-S-m      mpvv (script to watch video from ~/Videos/watch_later come with dotfiles)
+
+.SH
+Window manager
 .BL
 M-S-c      reload i3wm config
 .BL
@@ -65,3 +68,7 @@ M-s        layout stacking
 M-w        layout stabbed
 .BL
 M-e        layout split
+.BL
+M-S-space  toggle tiling / floating
+.BL
+M-space    change focus between tiling / floating windows
