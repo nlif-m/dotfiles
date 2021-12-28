@@ -54,7 +54,7 @@ bindsym $mod+e layout toggle split
 
 for_window [class="qBittorrent"] move to workspace $ws7
 for_window [class="Telegram"] move to workspace $ws8
-
+for_window [class="calibre"] move to workspace $ws9
 # Autostart programs 
 
 exec "telegram-desktop"
