@@ -47,7 +47,8 @@ M-t      htop
 M-S-t      thunar
 .BL 
 M-S-m      mpvv (script to watch video from ~/Videos/watch_later come with dotfiles)
-
+.BL
+M-S-w      rofi -show window
 .SH
 Window manager
 .BL
