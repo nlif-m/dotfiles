@@ -47,15 +47,17 @@ bindsym $mod+Shift+q exec "i3-msg exit"
 bindsym $mod+q kill
 bindsym $mod+r mode "resize"
 bindsym $mod+f fullscreen toggle
-# change container layout (stacked, tabbed, toggle split)
+## change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-# toggle tiling / floating
+## toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-# change focus between tiling / floating windows
+## change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# default layout
+workspace_layout stacking
 # Auto move tabs
 
 for_window [class="qBittorrent"] move to workspace $ws7
@@ -86,15 +88,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-
-
-
-# kill focused window
-
-
-
-
 
 # change focus
 bindsym $mod+h focus left
@@ -207,6 +200,7 @@ mode "resize" {
 bar {
     #font pango:DejaVu Sans Mono, FontAwesome 12
     position top
+    mode dock
     status_command /usr/bin/i3status-rs ~/.config/i3status/config.toml
     colors {
         separator #666666
