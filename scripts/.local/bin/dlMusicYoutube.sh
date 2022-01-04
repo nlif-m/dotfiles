@@ -1,6 +1,7 @@
 #!/bin/sh
 
-set -xe
+#set -xe
+set -e
 
 yd_dl=yt-dlp
 
@@ -9,8 +10,6 @@ song_list="$song_folder/song_list.txt"
 
 playlist_folder=~/Music/playlists
 playlist_list="$playlist_folder/playlist_list.txt"
-
-action=$(printf "song\nplaylist" | dmenu -p "What are you downloading ?") || exit
 
 check_is_valid_url()
 {
@@ -62,6 +61,30 @@ playlist_handle()
     notify-send "finish_downloading" "$title"
 }
 
+usage()
+{
+    echo "USAGE: $0 [[song|playlist] url]"    
+    echo "Without arguments it will take url from Xclip and ask by dmenu what you want to download."
+    echo "But you can pass a what type of url you pass by first argument and url by second argument."
+    exit 
+}
+
+if [ "$1" != "" ];
+then
+    if [ "$2" != "" ];
+    then
+	case "$1" in
+	    "song" ) song_handle "$2"; exit;;
+	    "playlist" ) playlist_handle "$2"; exit ;;
+	    *          ) usage;;
+	esac
+    else
+	usage
+	exit
+    fi
+fi
+
+action=$(printf "song\nplaylist" | dmenu -p "What are you downloading ?") || exit
 
 check_is_valid_url || exit
 
@@ -70,4 +93,6 @@ case "$action" in
     "playlist" ) playlist_handle "$url" ;;
     *  ) exit 1;;
 esac
+
+
 
