@@ -199,6 +199,7 @@ mode "resize" {
 # finds out, if available)
 bar {
     #font pango:DejaVu Sans Mono, FontAwesome 12
+    font pango:FreeMono 12
     position top
     mode dock
     status_command /usr/bin/i3status-rs ~/.config/i3status/config.toml
