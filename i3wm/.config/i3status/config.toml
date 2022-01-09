@@ -2,6 +2,11 @@ theme = "gruvbox-dark"
 icons = "none"
 
 [[block]]
+block = "battery"
+format = "{percentage}"
+interval = 10
+
+[[block]]
 block = "memory"
 display_type = "memory"
 format_mem = "{mem_used_percents}"
@@ -30,3 +35,5 @@ block = "networkmanager"
 on_click = "$TERMINAL -e nmtui"
 interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+", "virbr.*"]
 interface_name_include = []
+
+
