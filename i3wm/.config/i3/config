@@ -35,7 +35,6 @@ bindsym $mod+n exec "$TERMINAL -e newsboat"
 bindsym $mod+Shift+n exec "$TERMINAL -e neomutt"
 bindsym $mod+c exec "$TERMINAL -e cmus"
 bindsym $mod+Shift+Return exec "$TERMINAL"
-# TODO: fix htop startup because it don't work
 bindsym $mod+t exec "$TERMINAL -e htop"
 bindsym $mod+Shift+t exec thunar
 bindsym $mod+Shift+m exec mpvv
