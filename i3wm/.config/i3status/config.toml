@@ -19,6 +19,7 @@ interval = 1
 
 [[block]]
 block = "sound"
+on_click = "pavucontrol"
 
 [[block]]
 block = "time"
