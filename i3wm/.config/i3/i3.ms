@@ -8,7 +8,7 @@ i3wm shortcuts
 .SH  
 Legend
 .BL 
-M = MOD4KEY  alt key
+M = MOD4KEY super key
 .BL 
 S = ShiftMask shift key
 .BL 
