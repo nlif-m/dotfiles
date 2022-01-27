@@ -63,13 +63,13 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Aliases
-alias la="ls -alh --color"
+alias la="\ls -alh --color"
 alias zshc="$EDITOR ~/.config/zsh/.zshrc"
 alias pgp='pass git push origin master'
 alias sp='sudo pacman' 
 alias p='python'
 alias startx='startx ~/.config/x11/.xinitrc'
-alias ls='ls --color'
+alias ls='nnn -de'
 alias scr='cd ~/.local/share/scripts'
 alias dotf='cd ~/.config/dotfiles'
 alias apep8"=autopep8 --in-place --aggressive --aggressive"
