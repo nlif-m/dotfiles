@@ -1,0 +1,6 @@
+#!/bin/sh
+url=$(xclip -o)
+mpv "$url"
+
+
+
