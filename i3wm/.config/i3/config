@@ -65,6 +65,7 @@ for_window [class="calibre"] move to workspace $ws9
 # Autostart programs 
 
 exec "telegram-desktop"
+exec "watch -n 10 feh  --randomize --bg-fill /home/nlif/Pictures/nature"
 
 #END OF CONFIG
 # Font for window titles. Will also be used by the bar unless a different font
