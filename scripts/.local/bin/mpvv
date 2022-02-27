@@ -1,31 +1,36 @@
 #!/bin/sh
 
-#set -xe
-
+set -xe
 
 # TODO: Add ability to change folder's with command line argument
 # TODO: Add ability to change dmenu options by command line argument
 # TODO: Add ability to change sort order
 folder_with_videos=/home/nlif/Videos/watch_later 
-folder_with_videos_for_sed="s/\/home\/nlif\/Videos\/watch_later\///" 
+folder_with_videos_for_sed="s/\/home\/nlif\/Videos\/watch_later\///"
+archive_folder="$folder_with_videos"/archive
+with_video=""
 
-#is_sorted
+how=$(printf "last\nsorted\narchive" \
+     | dmenu -fn "FreeMono-12" -p "Sorted videos or last first?") || exit 1
 
+run_video() {
+    selected_video_full_path="$folder_with_videos/$selected_video_pre"
+    mpv "$selected_video_full_path" || exit 2
+    with_video=$(printf "save\ndelete\narchive" | dmenu -fn "FreeMono-12" -p "What to do with $selected_video_pre ?" -l 5) || exit 1
+}
 
-
-how=$(printf "last\nsorted" | dmenu -fn "FreeMono-12" -p "Sorted videos or last first?") || exit 1
-if [ "$how" = "last" ];
-then
-selected_video_pre=$(
-    find "$folder_with_videos" -type f -printf "%T+ %p\n" | \
-        sort -nr | \
-        # Delete time marks and leave just basename
-        sed 's/\S* \/.*\///' | \
+last_() {
+    selected_video_pre=$(
+        find "$folder_with_videos" -path "$archive_folder" -prune -o -type f -printf "%T+ %p\n" | \
+            sort -nr | \
+            sed 's/\S* //' | \
+            sed "$folder_with_videos_for_sed" | \
 	    dmenu -i -fn "FreeMono-no-20" -l 20) || exit
-fi 
+    run_video
+}
 
-if [ "$how" = "sorted" ];
-then
+
+sorted_() {
     selected_video_pre=$(
         find "$folder_with_videos" -type f| \
             sort -n | \
@@ -33,21 +38,38 @@ then
             sed "$folder_with_videos_for_sed" | \
             sed 's/\S* \/.*\///' | \
             dmenu -i -fn "FreeMono-no-20" -l 20) || exit
-fi
+    run_video
+}
 
-selected_video_full_path="$folder_with_videos/$selected_video_pre"
-
-mpv "$selected_video_full_path" && answer=$(printf "save\ndelete" | \
-    dmenu -fn "FreeMono-12" -p "What to do with $selected_video_pre ?" -l 2)
-
-if [ "$answer" = "delete" ];
-then 
-    rm "$selected_video_full_path"
-else
+case "$how" in 
+        "last"		) last_	;;
+        "sorted"	) sorted_	;;
+        "archive"	) archive_	;;
+	*               ) exit 1 ;;
+esac
+    
+save_() {
     touch "$selected_video_full_path"
-fi
+    exit 0
+}
 
-exit 0
+delete_() {
+    rm "$selected_video_full_path"
+    exit 0
+}
+
+archive_() {
+    mkdir -p "$archive_folder" ||  exit 1
+    mv "$selected_video_full_path" "$archive_folder"/ || exit 1
+    exit 0
+}
+
+case "$with_video" in
+    "save"	) save_ ;;
+    "delete"	) delete_ ;;
+    "archive"	) archive_ ;;
+    *		) exit 10;
+esac
+ 
 
 
-selected_video_full_path="$folder_with_videos/$selected_video_pre"
