@@ -1,5 +1,5 @@
-available_apps=git i3wm nvim profile scripts stow tmux vim x11 zsh rofi
-disabled_apps= brave-tor
+available_apps=git i3wm profile scripts stow tmux vim x11 rofi fish
+disabled_apps= brave-tor nvim zsh bash
 stow:
 	stow stow
 
@@ -10,5 +10,6 @@ uninstall:
 	$(foreach app,$(available_apps), stow -D $(app) stow;)
 
 
+.phony: install stow uninstall
 
 
