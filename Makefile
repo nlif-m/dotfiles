@@ -7,7 +7,7 @@ install: stow
 	$(foreach app,$(available_apps), stow $(app);)
 
 uninstall: 
-	$(foreach app,$(available_apps), stow -D $(app) stow;)
+	$(foreach app,$(available_apps) $(disabled_apps), stow -D $(app) stow;)
 
 
 .phony: install stow uninstall
