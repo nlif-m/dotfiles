@@ -12,6 +12,8 @@ set -gx EDITOR "vim"
 set -gx TERMINAL "st"
 set -gx BROWSER "firefox"
 
+#set -gx fish_greeting ""
+set -gx fish_greeting ""
 # ~/ Clean-up:
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
