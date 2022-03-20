@@ -5,8 +5,8 @@ set -xe
 # TODO: Add ability to change folder's with command line argument
 # TODO: Add ability to change dmenu options by command line argument
 # TODO: Add ability to change sort order
-folder_with_videos=/home/nlif/Videos/watch_later 
-folder_with_videos_for_sed="s/\/home\/nlif\/Videos\/watch_later\///"
+folder_with_videos=$HOME/Videos/watch_later 
+folder_with_videos_for_sed="s/\/home\/$USER\/Videos\/watch_later\///"
 archive_folder="$folder_with_videos"/archive
 with_video=""
 
