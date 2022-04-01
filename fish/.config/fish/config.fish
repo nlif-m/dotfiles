@@ -63,4 +63,11 @@ set -g __fish_git_prompt_color_invalidstate red
 set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
 set -g __fish_git_prompt_color_cleanstate green 
 
-zoxide init fish | source
+set z_provider /usr/bin/zoxide
+if test -e $z_provider
+    begin
+        $z_provider init fish | source  
+    end
+else
+    echo "WARNING: z provider not found, $z_provider not exists"
+end
