@@ -40,7 +40,7 @@ set -gx HISTFILE "$XDG_DATA_HOME/history"
 
 fish_add_path "$HOME/.local/bin" "$CARGO_HOME/bin" "$GOPATH/bin"
 
-sh -c 'umask u=rwx,g=rx,o='
+umask u=rwx,g=rx,o-rwx
 # Informative Git prompt configuration:
 set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_hide_untrackedfiles 1
