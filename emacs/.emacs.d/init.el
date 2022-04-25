@@ -1,7 +1,5 @@
-
-
-
-
+;; The default is 800 kilobytes.  Measured in bytes.  -*- lexical-binding: t; -*-
+(setq gc-cons-threshold (* 50 1000 1000))
 
 ;; Disable GUI components
 (setq inhibit-startup-screen t)
