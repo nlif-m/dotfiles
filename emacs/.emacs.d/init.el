@@ -59,7 +59,7 @@
 
 (require 'electric)
 (electric-pair-mode 1)
-(electric-indent-mode -1)
+(electric-indent-mode 1)
 
 ;; Delete selection
 (delete-selection-mode t)
