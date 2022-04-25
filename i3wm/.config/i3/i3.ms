@@ -36,19 +36,24 @@ M-S-s      rofi -show ssh
 .BL 
 M-n        newsboat
 .BL 
-M-S-n      neomutt 
+M-S-n      nnn  
 .BL 
 M-c        cmus
 .BL 
 M-S-RET    terminal
 .BL 
-M-t      htop
+M-t        htop
 .BL 
 M-S-t      thunar
 .BL 
 M-S-m      mpvv (script to watch video from ~/Videos/watch_later come with dotfiles)
 .BL
+M-m	   rmpvv
+.BL
 M-S-w      rofi -show window
+.BL
+M-S-e      emacsclient -c -a 'emacs'
+
 .SH
 Window manager
 .BL

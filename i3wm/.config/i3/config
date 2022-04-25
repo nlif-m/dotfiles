@@ -28,21 +28,23 @@ bindcode $mod+96 exec poweroff
 
 
 # APPLICATIONS
-bindsym $mod+Shift+d exec "passmenu"
-bindsym $mod+d exec "rofi -show run"
-bindsym $mod+Shift+s exec "rofi -show ssh"
-bindsym $mod+n exec "$TERMINAL -e newsboat"
-bindsym $mod+Shift+n exec "$TERMINAL -e neomutt"
-bindsym $mod+c exec "$TERMINAL -e cmus"
-bindsym $mod+Shift+Return exec "$TERMINAL"
-bindsym $mod+t exec "$TERMINAL -e htop"
-bindsym $mod+Shift+t exec thunar
-bindsym $mod+Shift+m exec mpvv
-bindsym $mod+Shift+w exec "rofi -show window"
+bindsym $mod+Shift+d		exec "passmenu"
+bindsym $mod+d			exec "rofi -show run"
+bindsym $mod+Shift+s		exec "rofi -show ssh"
+bindsym $mod+n			exec "$TERMINAL -e newsboat"
+bindsym $mod+Shift+n		exec "$TERMINAL -e nnn"
+bindsym $mod+c			exec "$TERMINAL -e cmus"
+bindsym $mod+Shift+Return	exec "$TERMINAL"
+bindsym $mod+t			exec "$TERMINAL -e htop"
+bindsym $mod+Shift+t		exec thunar
+bindsym $mod+Shift+m		exec mpvv
+bindsym $mod+m			exec "$TERMINAL -e rmpvv"
+bindsym $mod+Shift+w		exec "rofi -show window"
+bindsym $mod+Shift+e            exec "emacsclient -c -a 'emacs'"
 # WINDOM MANAGER
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+q exec "i3-msg exit"
+bindsym $mod+Shift+q		exec "i3-msg exit"
 bindsym $mod+q kill
 bindsym $mod+r mode "resize"
 bindsym $mod+f fullscreen toggle
