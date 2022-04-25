@@ -66,8 +66,11 @@ for_window [class="Telegram"] move to workspace $ws8
 for_window [class="calibre"] move to workspace $ws9
 # Autostart programs 
 
-exec "telegram-desktop"
-exec "watch -n 10 feh  --randomize --bg-fill /home/nlif/Pictures/nature"
+#exec "telegram-desktop"
+exec "syncthing --no-browser"
+exec "/usr/bin/emacs --daemon"
+# set background images
+#exec "watch -n 10 feh  --randomize --bg-fill $HOME/Pictures/nature"
 
 #END OF CONFIG
 # Font for window titles. Will also be used by the bar unless a different font
