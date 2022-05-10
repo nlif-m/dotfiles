@@ -36,7 +36,7 @@ M-S-s      rofi -show ssh
 .BL 
 M-n        newsboat
 .BL 
-M-S-n      nnn  
+M-S-n      nnn -de  
 .BL 
 M-c        cmus
 .BL 
