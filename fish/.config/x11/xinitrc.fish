@@ -13,17 +13,20 @@ set wm $argv[1]
 
 
 function similar
-    redshift &
+    emacs --daemon &
     remaps &
+    redshift &
+    dunst &
 end
 
 function startup_i3 
-    similar
+    similar &
     exec ssh-agent i3
 end
     
 function startup_dwm
-    similar
+    similar &
+    slstatus &
     exec dwm
 end
 
