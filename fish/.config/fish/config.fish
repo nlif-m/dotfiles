@@ -1,14 +1,15 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
+#fish_update_completions
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US.UTF-8
 set -gx GPG_TTY (tty)
 
 # Default programs:
-set -gx EDITOR "vim"
+set -gx EDITOR "emacsclient -t -a ''"
+set -gx VISUAL "emacsclient -c -a emacs"
 set -gx TERMINAL "st"
 set -gx BROWSER "firefox"
 
