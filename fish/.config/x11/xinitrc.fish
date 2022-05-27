@@ -1,5 +1,5 @@
 #!/bin/fish
-sh -c "setxkbmap -layout us,ru -option 'grp:ctrl_shift_toggle' -option 'grp:caps_toggle'"
+setxkbmap -layout us,ru -option 'grp:ctrl_shift_toggle' -option 'grp:caps_toggle'
 
 #if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
 #   . "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
