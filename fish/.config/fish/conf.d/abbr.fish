@@ -1,6 +1,6 @@
 # youtube-dl
 abbr -a -g yta "yt-dlp -x -f bestaudio/best -o '%(title)s.%(ext)s'"
-abbr -a -g ytpo "yt-dlp --embed-subs --sub-langs "en,ru" -f 'best[height<=729]' -o '%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s'"
+abbr -a -g ytpo "yt-dlp --embed-chapters --embed-subs --sub-langs "en,ru" -f 'best[height<=729]' -o '%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s'"
 # Git 
 abbr -a -g gis "git status"
 abbr -a -g gia "git add"
