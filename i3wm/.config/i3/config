@@ -66,9 +66,9 @@ for_window [class="Telegram"] move to workspace $ws8
 for_window [class="calibre"] move to workspace $ws9
 # Autostart programs 
 
-#exec "telegram-desktop"
 exec "syncthing --no-browser"
 exec "/usr/bin/emacs --daemon"
+exec "redshift"
 # set background images
 #exec "watch -n 10 feh  --randomize --bg-fill $HOME/Pictures/nature"
 

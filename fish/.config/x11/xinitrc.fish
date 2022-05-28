@@ -15,7 +15,6 @@ set wm $argv[1]
 function similar
     emacs --daemon &
     remaps &
-    redshift &
     dunst &
 end
 
